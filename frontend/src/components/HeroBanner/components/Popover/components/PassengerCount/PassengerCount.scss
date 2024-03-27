@@ -1,0 +1,32 @@
+.popover-items {
+  margin-bottom: var(--spacing_1x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.popover__range {
+  border: 1px solid #868686;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.children__age--container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 286px;
+}
+
+.children__age--select {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.children__age--desc {
+  margin: var(--spacing_2x) 0;
+}

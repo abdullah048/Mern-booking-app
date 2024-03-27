@@ -1,0 +1,118 @@
+.discover__banner--main {
+  margin-bottom: var(--spacing_6x);
+  position: relative;
+  border: 1px solid #e7e7e7;
+  overflow: hidden;
+}
+
+.discover__container {
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  min-height: 230px;
+  padding: var(--spacing_4x);
+  overflow: hidden;
+}
+
+.discover__banner--content {
+  display: flex;
+  margin: -100px 0;
+  min-width: 400px;
+  padding-left: 10%;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--blue-action-foreground-color);
+  position: relative;
+}
+
+.discover__scroll--content {
+  margin: 0;
+  height: 32px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+
+  ul {
+    display: inline-block;
+    transition: transform 1s ease-in-out;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-name: scroll-animation;
+    transform: translateY(0);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    will-change: transform;
+
+    li {
+      height: 40px;
+      white-space: nowrap;
+      text-align: left;
+    }
+  }
+}
+
+.discover__banner-btn {
+  margin-top: 16px;
+  max-width: 70%;
+  min-width: 50%;
+}
+
+.discover__banner--img {
+  padding: 0 0 0 var(--spacing_4x);
+  max-width: 360px;
+  width: 40%;
+  margin-right: var(--spacing_8x);
+
+  picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    img {
+      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+
+@keyframes scroll-animation {
+  8% {
+    transform: translateY(0);
+  }
+  13% {
+    transform: translateY(-40px);
+  }
+  21% {
+    transform: translateY(-40px);
+  }
+  26% {
+    transform: translateY(-80px);
+  }
+  34% {
+    transform: translateY(-80px);
+  }
+  39% {
+    transform: translateY(-120px);
+  }
+  47% {
+    transform: translateY(-120px);
+  }
+  52% {
+    transform: translateY(-160px);
+  }
+  60% {
+    transform: translateY(-160px);
+  }
+  65% {
+    transform: translateY(-200px);
+  }
+  95% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(-240px);
+  }
+}

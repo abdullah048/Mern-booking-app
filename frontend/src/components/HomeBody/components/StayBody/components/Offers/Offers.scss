@@ -1,0 +1,14 @@
+.offers__container {
+  display: block;
+  width: 100%;
+  margin-bottom: 24px;
+}
+.offers__banner--container {
+  flex-grow: 1;
+}
+
+.offers__banner--heading {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing_2x);
+}

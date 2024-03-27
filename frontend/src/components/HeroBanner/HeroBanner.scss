@@ -1,0 +1,33 @@
+.banner__main--container {
+  border: none;
+  margin-bottom: var(--spacing_24x);
+
+  @media screen and (max-width: 900px) {
+    position: relative;
+  }
+}
+
+.banner__inner--wrapper {
+  background-color: var(--blue-action-color);
+  width: 100%;
+  position: relative;
+
+  @media screen and (max-width: 900px) {
+    padding-bottom: calc(var(--spacing_8x) * 5);
+  }
+}
+
+.banner__top {
+  min-height: 240px;
+  padding-top: var(--spacing_16x);
+  max-width: 1094px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: var(--spacing_12x) 5px calc(var(--spacing_12x) + 30px);
+  display: flex;
+}
+
+.banner__top--heading {
+  //   margin: 0 auto;
+  max-width: 890px;
+}
