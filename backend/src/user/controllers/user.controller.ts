@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import { Request, Response } from 'express';
 import { IUser } from '../interfaces/user.interface';
 import User from '../model/user.model';
-import { registerUser, generateAccessToken } from '../services/user.service';
+import { generateAccessToken, registerUser } from '../services/user.service';
 import ConflictException from '../../common/Error/error.conflictException';
 import { convertToMilliSeconds } from '../../common/helpers/convertToMilliseconds';
 import BadRequest from '../../common/Error/error.badRequest';
@@ -62,7 +62,7 @@ export const login = async (req: Request, res: Response) => {
 };
 
 export const validateToken = async (req: Request, res: Response) => {
-  res.status(200).json({ userId: req.userId });
+  res.status(200).json({ user: req.user });
 };
 
 export const signOut = async (req: Request, res: Response) => {

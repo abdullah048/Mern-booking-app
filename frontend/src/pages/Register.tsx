@@ -232,6 +232,12 @@ const Signup = () => {
                 Sign up with Github
               </StyledAntButton>
               <StyledAntButton
+                onClick={() =>
+                  window.open(
+                    `${import.meta.env.VITE_APP_URL}/auth/google`,
+                    '_self'
+                  )
+                }
                 icon={<GoogleOutlined />}
                 style={{
                   width: '100%',

@@ -8,13 +8,18 @@ const userSchema = new Schema<IUser>(
       type: String,
       required: true,
       trim: true,
-      maxlength: 10,
+      maxlength: 30,
+    },
+    sub: {
+      type: String,
+      required: false,
+      trim: true,
     },
     lastName: {
       type: String,
       required: true,
       trim: true,
-      maxlength: 10,
+      maxlength: 30,
     },
     email: {
       type: String,
@@ -28,7 +33,7 @@ const userSchema = new Schema<IUser>(
       required: true,
       trim: true,
       maxlength: 12,
-      minlength: 5,
+      minlength: 3,
     },
   },
   {

@@ -1,9 +1,9 @@
 import { CSSProperties, FC } from 'react';
 import { Button } from 'antd';
-import { BaseButtonProps } from 'antd/lib/button/button';
+import { ButtonProps } from 'antd/lib/button/button';
 import styled from 'styled-components';
 
-interface StyledAntButtonProps extends BaseButtonProps {
+interface StyledAntButtonProps extends ButtonProps {
   style?: CSSProperties;
   htmlType: 'button' | 'reset' | 'submit';
 }

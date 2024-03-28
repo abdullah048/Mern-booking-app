@@ -13,8 +13,8 @@ export async function registerUser(
   return rest;
 }
 
-export async function generateAccessToken(id: string) {
-  return jwt.sign({ userId: id }, process.env.JWT_SECRET as string, {
+export async function generateAccessToken(user: any) {
+  return jwt.sign({ user }, process.env.JWT_SECRET as string, {
     expiresIn: process.env.JWT_EXPIRES_IN ?? '1d',
   });
 }

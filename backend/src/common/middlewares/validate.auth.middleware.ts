@@ -1,14 +1,7 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { NextFunction, Request, Response } from 'express';
 import UnauthorizedException from '../Error/error.unauthorizedException';
-
-declare global {
-  namespace Express {
-    interface Request {
-      userId: string;
-    }
-  }
-}
+import { IUser } from '../../user/interfaces/user.interface';
 
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
   const token = req.cookies['access_token'];
@@ -18,7 +11,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET as string);
-    req.userId = (decoded as JwtPayload).userId;
+    req.user = (decoded as JwtPayload).user;
   } catch (error) {
     throw new UnauthorizedException('Unauthorized');
   }

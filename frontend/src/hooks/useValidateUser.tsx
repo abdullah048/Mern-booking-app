@@ -3,6 +3,7 @@ import { Flex, Spin } from 'antd';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useAuthStore from './useAuthStore';
 
 type Props = {
   redirectUrl: string;
@@ -10,7 +11,8 @@ type Props = {
 
 export default function ValidateUser({ redirectUrl }: Props) {
   const navigate = useNavigate();
-  const { isError, isPending, isSuccess } = useQuery({
+  const { setUser } = useAuthStore();
+  const { isError, isPending, isSuccess, data } = useQuery({
     queryKey: ['validate-token'],
     queryFn: () => {
       return axios.get(`${import.meta.env.VITE_BASE_URL}/user/validate-token`, {
@@ -24,9 +26,11 @@ export default function ValidateUser({ redirectUrl }: Props) {
     if (isError) return;
 
     if (isSuccess) {
+      localStorage.setItem('user', JSON.stringify(data.data?.user));
+      setUser(data.data?.user);
       navigate(redirectUrl);
     }
-  }, [isError, isSuccess, navigate, redirectUrl]);
+  }, [data, isError, isSuccess, navigate, redirectUrl, setUser]);
 
   if (isPending) {
     return (
