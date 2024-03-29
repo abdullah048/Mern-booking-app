@@ -16,8 +16,11 @@ passport.use(
       try {
         const userExist = await User.findOne({ email: account.email });
         if (userExist) {
-          done(null, userExist);
-          return;
+          newUser = userExist.toJSON();
+          (newUser.firstName = account.login as string),
+            (newUser.email = account.email as string),
+            (newUser.sub = account.id as string),
+            await User.updateOne({ email: account.email }, newUser);
         } else {
           newUser = {
             email: account.email as string,

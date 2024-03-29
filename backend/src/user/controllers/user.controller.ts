@@ -62,7 +62,8 @@ export const login = async (req: Request, res: Response) => {
 };
 
 export const validateToken = async (req: Request, res: Response) => {
-  res.status(200).json({ user: req.user });
+  const { password, ...rest } = req.user as IUser;
+  res.status(200).json({ user: rest });
 };
 
 export const signOut = async (req: Request, res: Response) => {
