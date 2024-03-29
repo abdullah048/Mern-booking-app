@@ -167,6 +167,12 @@ const Login = () => {
                 gap: '8px',
               }}>
               <StyledAntButton
+                onClick={() =>
+                  window.open(
+                    `${import.meta.env.VITE_APP_URL}/auth/github`,
+                    '_self'
+                  )
+                }
                 icon={<GithubOutlined />}
                 style={{
                   width: '100%',

@@ -2,13 +2,24 @@
 
 import passport from 'passport';
 
-export const googleOAuth = passport.authenticate('google', {
+export const googleInitiateAuth = passport.authenticate('google', {
   scope: ['profile', 'email'],
 });
 
 export const googleOAuthCallback = passport.authenticate('google', {
   passReqToCallback: true,
   session: false,
-  // successRedirect: '/google/success',
   failureRedirect: '/google/failure',
+});
+
+// github oauth strategy
+
+export const githubInitiateAuth = passport.authenticate('github', {
+  scope: ['user:email'],
+});
+
+export const githubOAuthCallback = passport.authenticate('github', {
+  failureRedirect: '/github/failure',
+  passReqToCallback: true,
+  session: false,
 });

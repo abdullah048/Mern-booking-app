@@ -1,16 +1,16 @@
 import passport from 'passport';
-import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import { Strategy as GithubStrategy } from 'passport-github2';
 import User from '../../user/model/user.model';
 import { IUser } from '../../user/interfaces/user.interface';
 
 passport.use(
-  new GoogleStrategy(
+  new GithubStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      callbackURL: process.env.GOOGLE_CALLBACK_URI,
+      clientID: process.env.GITHUB_CLIENT_ID as string,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+      callbackURL: process.env.GITHUB_CALLBACK_URI as string,
     },
-    async (_, __, profile, done) => {
+    async (_: any, __: any, profile: any, done: any) => {
       const account = profile._json;
       let newUser: Partial<IUser> = {};
       try {
@@ -21,10 +21,10 @@ passport.use(
         } else {
           newUser = {
             email: account.email as string,
-            firstName: account.name as string,
+            firstName: account.login as string,
             lastName: 'N/A',
             password: 'N/A',
-            sub: account.sub,
+            sub: account.id,
           };
           await User.create(newUser);
         }

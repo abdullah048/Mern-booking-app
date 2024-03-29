@@ -6,10 +6,10 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import errorHandling from './common/Error/error.base.middleware';
 import './common/Strategy/google.oauth.strategy';
+import './common/Strategy/github.oauth.strategy';
 import userRoutes from './routes/users.route';
 import authRoutes from './routes/auth.route';
 import passport from 'passport';
-import { generateAccessToken } from './user/services/user.service';
 
 const app = express();
 
@@ -28,6 +28,11 @@ app.use(passport.initialize());
 
 // google OAuth redirects
 app.get('/google/failure', async (req: Request, res: Response) => {
+  res.redirect(`${process.env.APP_URL as string}/sign-in`);
+});
+
+// github OAuth redirects
+app.get('/github/failure', async (req: Request, res: Response) => {
   res.redirect(`${process.env.APP_URL as string}/sign-in`);
 });
 
